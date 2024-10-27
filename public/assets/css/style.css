@@ -1,0 +1,85 @@
+.popup-content {
+    visibility: hidden;
+    width: 160px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #d5d5d5;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+.popup-content::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #d5d5d5 transparent transparent transparent;
+}
+
+.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 0.25s;
+    animation: fadeIn 0.25s;
+}
+
+/* responsive table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table-fixed thead th {
+    position: sticky !important;
+    top: 0;
+    background-color: #fff !important;
+    z-index: 1 !important;
+}
+
+.table-fixed tbody td:first-child,
+.table-fixed thead th:first-child,
+.table-fixed tbody td:last-child,
+.table-fixed thead th:last-child {
+    position: sticky !important;
+    background-color: #fff !important;
+    z-index: 1 !important;
+}
+
+.table-fixed tbody td:first-child,
+.table-fixed thead th:first-child {
+    left: 0;
+}
+
+.table-fixed tbody td:last-child,
+.table-fixed thead th:last-child {
+    right: 0;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

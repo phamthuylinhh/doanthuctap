@@ -1,47 +1,185 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!doctype html>
+<html lang="en">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+    <title>OneUI - Bootstrap 5 Admin Template &amp; UI Framework</title>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="index, follow">
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework">
+    <meta property="og:site_name" content="OneUI">
+    <meta property="og:description"
+        content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+    <!-- Stylesheets -->
+    <!-- OneUI framework -->
+    <link rel="stylesheet" id="css-main" href="assets/css/oneui.min.css">
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/amethyst.min.css"> -->
+    <!-- END Stylesheets -->
+</head>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+<body>
+    <!-- Page Container -->
+    <!--
+      Available classes for #page-container:
+
+      GENERIC
+
+        'remember-theme'                            Remembers active color theme and dark mode between pages using localStorage when set through
+                                                    - Theme helper buttons [data-toggle="theme"],
+                                                    - Layout helper buttons [data-toggle="layout" data-action="dark_mode_[on/off/toggle]"]
+                                                    - ..and/or One.layout('dark_mode_[on/off/toggle]')
+
+      SIDEBAR & SIDE OVERLAY
+
+        'sidebar-r'                                 Right Sidebar and left Side Overlay (default is left Sidebar and right Side Overlay)
+        'sidebar-mini'                              Mini hoverable Sidebar (screen width > 991px)
+        'sidebar-o'                                 Visible Sidebar by default (screen width > 991px)
+        'sidebar-o-xs'                              Visible Sidebar by default (screen width < 992px)
+        'sidebar-dark'                              Dark themed sidebar
+
+        'side-overlay-hover'                        Hoverable Side Overlay (screen width > 991px)
+        'side-overlay-o'                            Visible Side Overlay by default
+
+        'enable-page-overlay'                       Enables a visible clickable Page Overlay (closes Side Overlay on click) when Side Overlay opens
+
+        'side-scroll'                               Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (screen width > 991px)
+
+      HEADER
+
+        ''                                          Static Header if no class is added
+        'page-header-fixed'                         Fixed Header
+
+      HEADER STYLE
+
+        ''                                          Light themed Header
+        'page-header-dark'                          Dark themed Header
+
+      MAIN CONTENT LAYOUT
+
+        ''                                          Full width Main Content if no class is added
+        'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
+        'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
+
+      DARK MODE
+
+        'sidebar-dark page-header-dark dark-mode'   Enable dark mode (light sidebar/header is not supported with dark mode)
+    -->
+    <div id="page-container">
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Content -->
+            <div class="hero-static d-flex align-items-center">
+                <div class="w-100">
+                    <!-- Sign In Section -->
+                    <div class="bg-body-extra-light">
+                        <div class="content content-full">
+                            <div class="row g-0 justify-content-center">
+                                <div class="col-md-8 col-lg-6 col-xl-4 py-4 px-4 px-lg-5">
+                                    <!-- Header -->
+                                    <div class="text-center">
+                                        <p class="mb-2">
+                                            <i class="fa fa-2x fa-circle-notch text-primary"></i>
+                                        </p>
+                                        <h1 class="h4 mb-1">
+                                            Sign In
+                                        </h1>
+                                        <p class="fw-medium text-muted mb-3">
+                                            A perfect match for your project
+                                        </p>
+                                    </div>
+                                    <!-- END Header -->
+
+                                    <!-- Sign In Form -->
+                                    <!-- jQuery Validation (.js-validation-signin class is initialized in js/pages/op_auth_signin.min.js which was auto compiled from _js/pages/op_auth_signin.js) -->
+                                    <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                                    <form action="{{ route('login') }}" method="POST">
+                                        {{-- <form method="POST" action="{{ route('dashboard') }}" > --}}
+                                        @csrf
+                                        <div class="py-3">
+                                            <div class="mb-4">
+                                                <input type="email"
+                                                    class="form-control form-control-lg form-control-alt" id="email"
+                                                    name="email" placeholder="Email">
+                                            </div>
+                                            <div class="mb-4">
+                                                <input type="password"
+                                                    class="form-control form-control-lg form-control-alt" id="password"
+                                                    name="password" placeholder="Password">
+                                            </div>
+                                            <div class="mb-4">
+                                                <div class="d-md-flex align-items-md-center justify-content-md-between">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="remember" name="remember">
+                                                        <label class="form-check-label" for="remember">Remember
+                                                            Me</label>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <a class="fs-sm fw-medium" href="op_auth_reminder2.html">Forgot
+                                                            Password?</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6 col-xxl-5">
+                                                <button type="submit" class="btn w-100 btn-alt-primary">
+                                                    <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Sign In
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END Sign In Form -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+
+    <!--
+        OneUI JS
+
+        Core libraries and functionality
+        webpack is putting everything together at assets/_js/main/app.js
+    -->
+    <script src="assets/js/oneui.app.min.js"></script>
+
+    <!-- jQuery (required for jQuery Validation plugin) -->
+    <script src="assets/js/lib/jquery.min.js"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+
+    <!-- Page JS Code -->
+    <script src="assets/js/pages/op_auth_signin.min.js"></script>
+</body>
+
+</html>
