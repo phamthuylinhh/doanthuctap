@@ -25,7 +25,7 @@ class AuthLayout extends Component
         $nav = [
             [
                 'name' => "Dashboard",
-                'link' => "/admin/dashboard"
+                'link' => ""
             ],
             [
                 'name' => "Nguời dùng",
@@ -35,11 +35,105 @@ class AuthLayout extends Component
                         'link' => "/admin/users/create"
                     ],
                     [
-                        'name' => "Nguòi dùng",
-                        'link' => "/admin/urses"
+                        'name' => "Người dùng",
+                        'link' => "/admin/users"
                     ],
                 ]
+            ],
+            [
+                'name' => "Nghỉ phép",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/leave_requests/create"
+                    ],
+                    [
+                        'name' => "Nghỉ phép",
+                        'link' => "/admin/leave_requests"
+                    ]
+                ]
+            ],
+            [
+                'name' => "Ứng lương",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/salary_advances/create"
+                    ],
+                    [
+                        'name' => "Nghỉ phép",
+                        'link' => "/admin/salary_advances"
+                    ]
+                ]
+            ],
+            [
+                'name' => "Ngày nghỉ",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/holidays/create"
+                    ],
+                    [
+                        'name' => "Nghỉ phép",
+                        'link' => "/admin/holidays"
+                    ]
+                ]
+            ],
+            [
+                'name' => "Danh mục ngày nghỉ",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/holiday-categories/create"
+                    ],
+                    [
+                        'name' => "Nghỉ phép",
+                        'link' => "/admin/holiday-categories"
+                    ]
+                ]
+            ],
+            [
+                'name' => "Khách hàng",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/customers/create"
+                    ],
+                    [
+                        'name' => "Nghỉ phép",
+                        'link' => "/admin/customers"
+                    ]
+                ]
+            ],
+            [
+                'name' => "Ngày công",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/workday/create"
+                    ],
+                    [
+                        'name' => "Nghỉ phép",
+                        'link' => "/admin/workday"
+                    ]
+                ]
+            ],
+            [
+                'name' => "Lương tháng",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/salary/create"
+                    ],
+                    [
+                        'name' => "Nghỉ phép",
+                        'link' => "/admin/salary"
+                    ]
+                ]
             ]
+
+
+
 
         ];
         $user = request()->user();
