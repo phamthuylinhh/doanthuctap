@@ -61,7 +61,7 @@ class AuthLayout extends Component
                         'link' => "/admin/salary_advances/create"
                     ],
                     [
-                        'name' => "Nghỉ phép",
+                        'name' => "Ứng lương",
                         'link' => "/admin/salary_advances"
                     ]
                 ]
@@ -74,7 +74,7 @@ class AuthLayout extends Component
                         'link' => "/admin/holidays/create"
                     ],
                     [
-                        'name' => "Nghỉ phép",
+                        'name' => "Ngày nghỉ",
                         'link' => "/admin/holidays"
                     ]
                 ]
@@ -87,7 +87,7 @@ class AuthLayout extends Component
                         'link' => "/admin/holiday-categories/create"
                     ],
                     [
-                        'name' => "Nghỉ phép",
+                        'name' => "Danh mục ngày nghỉ",
                         'link' => "/admin/holiday-categories"
                     ]
                 ]
@@ -100,7 +100,7 @@ class AuthLayout extends Component
                         'link' => "/admin/customers/create"
                     ],
                     [
-                        'name' => "Nghỉ phép",
+                        'name' => "Khách hàng",
                         'link' => "/admin/customers"
                     ]
                 ]
@@ -113,7 +113,7 @@ class AuthLayout extends Component
                         'link' => "/admin/workday/create"
                     ],
                     [
-                        'name' => "Nghỉ phép",
+                        'name' => "Ngày công",
                         'link' => "/admin/workday"
                     ]
                 ]
@@ -126,7 +126,7 @@ class AuthLayout extends Component
                         'link' => "/admin/salary/create"
                     ],
                     [
-                        'name' => "Nghỉ phép",
+                        'name' => "Lương tháng",
                         'link' => "/admin/salary"
                     ]
                 ]
