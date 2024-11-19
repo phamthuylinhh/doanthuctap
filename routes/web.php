@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LeaveRequestController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -21,7 +22,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->prefix("/admin")->group(function () {
     Route::resource('users', UserController::class)->only(['index', 'create', 'edit']);
-
+    Route::resource('leave_requests', LeaveRequestController::class)->only(['index', 'create', 'edit']);
 });
 
 

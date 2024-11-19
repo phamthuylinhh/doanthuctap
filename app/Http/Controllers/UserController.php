@@ -31,6 +31,7 @@ class UserController extends Controller
     {
         return view('users.create', [
             'statuses' => array_column(UserStatus::cases(), 'value'),
+            'users' => UserResource::collection(User::all())
         ]);
 
     }
@@ -40,13 +41,10 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        try {
-            $data = $request->all();
-            $user = User::create($data);
-            return redirect()->route('users.index');
-        } catch (QueryException $e) {
-            return redirect()->back()->withErrors($e->getMessage());
-        }
+
+        $data = $request->all();
+        User::create($data);
+        return redirect((route('users.index', absolute: false)));
     }
 
     /**

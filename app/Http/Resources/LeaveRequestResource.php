@@ -14,6 +14,9 @@ class LeaveRequestResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        $leave_request = parent::toArray($request);
+        return array_merge($leave_request, [
+            'user' => new UserResource($this->user),
+        ]);
     }
 }
