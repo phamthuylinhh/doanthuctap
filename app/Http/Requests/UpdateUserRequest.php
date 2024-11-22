@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUserRequest extends FormRequest
@@ -11,9 +11,8 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        // return false;
-        $user = $this->user();
-        return $user->can('users.update');
+        return true;
+        // return Auth::check();
 
     }
 

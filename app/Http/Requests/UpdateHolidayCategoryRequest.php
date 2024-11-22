@@ -3,15 +3,18 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Request;
+use Illuminate\Support\Facades\Auth;
 class UpdateHolidayCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+    public function authorize(Request $request): bool
     {
-        return false;
+        // $user = $request->user();
+
+        return true;
     }
 
     /**
@@ -22,7 +25,8 @@ class UpdateHolidayCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'code' => 'required|string|unique:holiday_categories,code',
+            'name' => 'required|string',
         ];
     }
 }

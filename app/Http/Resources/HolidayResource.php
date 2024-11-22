@@ -14,6 +14,10 @@ class HolidayResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        // return parent::toArray($request);
+        $res = array_merge(parent::toArray($request), [
+            'category' => new HolidayCategoryResource($this->category)
+        ]);
+        return $res;
     }
 }

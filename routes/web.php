@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\LeaveRequestController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SalaryAdvancesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HolidayCategoryController;
+use App\Http\Controllers\HolidayController;
+use App\Http\Controllers\CustomerController;
 Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('/');
@@ -23,6 +27,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->prefix("/admin")->group(function () {
     Route::resource('users', UserController::class)->only(['index', 'create', 'edit']);
     Route::resource('leave_requests', LeaveRequestController::class)->only(['index', 'create', 'edit']);
+    Route::resource('salary_advances', SalaryAdvancesController::class)->only(['index', 'create', 'edit']);
+    Route::resource('holidays', HolidayController::class)->only(['index', 'create', 'edit']);
+    Route::resource('holiday-categories', HolidayCategoryController::class)->only(['index', 'create', 'edit']);
+    Route::resource('customers', CustomerController::class)->only(['index', 'create', 'edit']);
 });
 
 

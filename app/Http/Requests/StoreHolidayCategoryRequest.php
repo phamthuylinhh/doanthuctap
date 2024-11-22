@@ -1,17 +1,20 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Request;
 
 class StoreHolidayCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+    public function authorize(Request $request): bool
     {
-        return false;
+        // $user = $request->user();
+        // return $user->can('holiday_categories.create', $user);
+        return true;
     }
 
     /**
@@ -22,7 +25,8 @@ class StoreHolidayCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'code' => 'required|string|unique:holiday_categories,code',
+            'name' => 'required|string',
         ];
     }
 }

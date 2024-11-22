@@ -79,14 +79,15 @@ class LeaveRequestController extends Controller
     {
         try {
             $leave_request->delete();
-            return response()->json([
-                'status' => true,
-            ], 400);
-
+            return redirect(route('leave_requests.index', [
+                'status' => true
+            ], absolute: false));
         } catch (QueryException $e) {
-            return response()->json([
+            return redirect(route('leave_requests.index', [
+                'status' => false,
                 'message' => $e->getMessage()
-            ]);
+            ], absolute: false));
         }
     }
+
 }

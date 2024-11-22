@@ -56,7 +56,10 @@ class UserController extends Controller
     }
     public function edit(User $user)
     {
-
+        return view('users.edit', [
+            'user' => new UserResource($user),
+            'statuses' => array_column(UserStatus::cases(), 'value'),
+        ]);
     }
 
     /**
@@ -64,7 +67,18 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->validated();
+        unset($data['confirm-password']);
+        if (!$data['password'])
+            unset($data['password']);
+        else
+            $data['password'] = Hash::make($request->input('password'));
+
+        // return $data;
+        $user->update($data);
+        return redirect()->route(
+            'users.index',
+        );
     }
 
     /**

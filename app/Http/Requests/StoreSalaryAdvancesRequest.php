@@ -1,17 +1,22 @@
 <?php
 
 namespace App\Http\Requests;
-
+use App\Models\Enums\SalaryAdvancesEnum;
+use App\Models\Enums\StatusLeaveRequest;
 use Illuminate\Foundation\Http\FormRequest;
+use Redirect;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class StoreSalaryAdvancesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+    public function authorize(Request $request): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +27,7 @@ class StoreSalaryAdvancesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            Rule::enum(SalaryAdvancesEnum::class),
         ];
     }
 }
