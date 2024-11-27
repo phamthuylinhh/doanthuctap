@@ -110,11 +110,11 @@ class AuthLayout extends Component
                 'children' => [
                     [
                         'name' => "Thêm mới",
-                        'link' => "/admin/workday/create"
+                        'link' => "/admin/work_days/create"
                     ],
                     [
                         'name' => "Ngày công",
-                        'link' => "/admin/workday"
+                        'link' => "/admin/work_days"
                     ]
                 ]
             ],
@@ -123,11 +123,11 @@ class AuthLayout extends Component
                 'children' => [
                     [
                         'name' => "Thêm mới",
-                        'link' => "/admin/salary/create"
+                        'link' => "/admin/salaries/create"
                     ],
                     [
                         'name' => "Lương tháng",
-                        'link' => "/admin/salary"
+                        'link' => "/admin/salaries"
                     ]
                 ]
             ]

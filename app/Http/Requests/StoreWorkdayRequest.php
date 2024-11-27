@@ -11,7 +11,7 @@ class StoreWorkdayRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreWorkdayRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+
+            // 'started_at' => 'required|date_format:Y-m-d',
+            // 'ended_at' => 'required|date_format:Y-m-d',
+            // 'day' => 'required|numeric',
         ];
     }
 }

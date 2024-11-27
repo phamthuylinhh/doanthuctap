@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Models\Enums\SalaryAdvancesEnum;
 
 class UpdateSalaryAdvancesRequest extends FormRequest
 {
@@ -23,6 +24,7 @@ class UpdateSalaryAdvancesRequest extends FormRequest
     {
         return [
             'user_id' => 'required|exists:users,id',
+
         ];
     }
 }

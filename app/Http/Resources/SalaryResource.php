@@ -14,6 +14,9 @@ class SalaryResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        $salaries = parent::toArray($request);
+        return array_merge($salaries, [
+            'user' => new UserResource($this->user)
+        ]);
     }
 }
