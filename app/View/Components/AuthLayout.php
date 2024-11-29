@@ -119,6 +119,20 @@ class AuthLayout extends Component
                 ]
             ],
             [
+                'name' => "Thanh toán ",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/work_days/create",
+
+                    ],
+                    [
+                        'name' => "Ngày công",
+                        'link' => "/admin/work_days"
+                    ]
+                ]
+            ],
+            [
                 'name' => "Lương tháng",
                 'children' => [
                     [

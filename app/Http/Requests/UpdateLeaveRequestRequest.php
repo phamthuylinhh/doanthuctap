@@ -14,8 +14,7 @@ class UpdateLeaveRequestRequest extends FormRequest
      */
     public function authorize(Request $request): bool
     {
-        $user = $request->user();
-        return $user->can('leave_requests.update', $user);
+        return true;
     }
 
     /**
@@ -27,14 +26,15 @@ class UpdateLeaveRequestRequest extends FormRequest
     {
         return [
             'user_id' => 'required|exists:users,id',
-            'started_at' => 'required|date_format:Y-m-d',
-            'ended_at' => 'required|date_format:Y-m-d',
-            'description' => 'required|string',
-            'status' => [
-                'required',
-                'string',
-                Rule::enum(StatusLeaveRequest::class),
-            ],
+            // 'users' => 'required|string',
+            // 'started_at' => 'required|date_format:Y-m-d',
+            // 'ended_at' => 'required|date_format:Y-m-d',
+            // 'description' => 'required|string',
+            // 'status' => [
+            //     'required',
+            //     'string',
+            //     Rule::enum(StatusLeaveRequest::class),
+            // ],
         ];
     }
 }

@@ -13,33 +13,34 @@
             'width' => '20px',
         ],
         [
-            'name' => 'user',
+            'name' => 'Nhân viên',
             'key' => 'user',
             'width' => '200px',
         ],
         [
-            'name' => 'salary',
+            'name' => 'Lương',
             'key' => 'salary',
-            'width' => '200px',
+            'width' => '20px',
         ],
         [
-            'name' => 'subsidy',
+            'name' => 'Trợ cấp',
             'key' => 'subsidy',
         ],
         [
-            'name' => 'fund',
+            'name' => 'Quỹ',
             'key' => 'fund',
         ],
         [
-            'name' => 'insurance',
+            'name' => 'Bảo hiểm',
             'key' => 'insurance',
         ],
         [
-            'name' => 'paid leave',
+            'name' => 'Ngày nghỉ phép có lương',
             'key' => 'paid_leave',
+            'width' => '200px',
         ],
         [
-            'name' => 'average salary',
+            'name' => 'Lương trung bình',
             'key' => 'average_salary',
         ],
         [
@@ -63,12 +64,12 @@
             <tr>
                 <td class='sticky-left text-center fs-sm'>{{ $salary['id'] }}</td>
                 <td class="fw-semibold fs-sm">{{ $salary['user']->name }}</td>
-                <td class="text-muted fs-sm">{{ $salary['salary'] }}</td>
-                <td class="text-muted fs-sm">{{ $salary['subsidy'] }}</td>
-                <td class="text-muted fs-sm">{{ $salary['fund'] }}</td>
-                <td class="text-muted fs-sm">{{ $salary['insurance'] }}</td>
-                <td class="text-muted fs-sm">{{ $salary['paid_leave'] }}</td>
-                <td class="text-muted fs-sm">{{ $salary['average_salary'] }}</td>
+                <td class="text-muted fs-sm">{{ $salary['salary'] }}VND</td>
+                <td class="text-muted fs-sm">{{ $salary['subsidy'] }}VND</td>
+                <td class="text-muted fs-sm">{{ $salary['fund'] }}VND</td>
+                <td class="text-muted fs-sm">{{ $salary['insurance'] }}VND</td>
+                <td class="text-muted fs-sm">{{ $salary['paid_leave'] }}VND</td>
+                <td class="text-muted fs-sm">{{ $salary['average_salary'] }}VND</td>
                 <td class="text-muted fs-sm">{{ $salary['started_at'] }}</td>
                 <td class="text-muted fs-sm">{{ $salary['ended_at'] }}</td>
 

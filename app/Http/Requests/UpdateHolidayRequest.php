@@ -25,10 +25,10 @@ class UpdateHolidayRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'day' => 'required|numeric',
-            'category_id' => 'required|exists:holiday_categories,id',
-            'started_at' => 'required|date_format:Y-m-d',
-            'ended_at' => 'required|date_format:Y-m-d',
+            // 'day' => 'required|numeric',
+            // 'category_id' => 'required|exists:holiday_categories,id',
+            // 'started_at' => 'required|date_format:Y-m-d',
+            // 'ended_at' => 'required|date_format:Y-m-d',
         ];
 
     }

@@ -3,12 +3,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLeaveRequestRequest;
 use App\Http\Requests\UpdateLeaveRequestRequest;
 use App\Http\Resources\LeaveRequestResource;
+use App\Http\Resources\UserResource;
 use App\Models\Enums\StatusLeaveRequest;
 use App\Models\LeaveRequest;
 use Illuminate\Database\QueryException;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Spatie\QueryBuilder\QueryBuilder;
+
 
 class LeaveRequestController extends Controller
 {
@@ -29,7 +32,11 @@ class LeaveRequestController extends Controller
      */
     public function create()
     {
-        return view('leave_requests.create');
+        return view('leave_requests.create', [
+            'users' => UserResource::collection(User::all()),
+            'leave_requests' => LeaveRequestResource::collection(LeaveRequest::all()),
+            'statuses' => array_column(StatusLeaveRequest::cases(), 'value')
+        ]);
     }
 
     /**
@@ -57,6 +64,7 @@ class LeaveRequestController extends Controller
     {
         return view('leave_requests.edit', [
             'leave_request' => $leave_request,
+            'users' => UserResource::collection(User::all()),
             'statuses' => array_column(StatusLeaveRequest::cases(), 'value')
         ]);
 

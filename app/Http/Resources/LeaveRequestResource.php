@@ -18,5 +18,9 @@ class LeaveRequestResource extends JsonResource
         return array_merge($leave_request, [
             'user' => new UserResource($this->user),
         ]);
+        // return [
+        //     'id' => $this->id,
+        //     'user_id' => $this->user_id,
+        // ];
     }
 }

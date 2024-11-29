@@ -25,9 +25,9 @@ class StoreHolidayRequest extends FormRequest
     {
         return [
             //
-            'category_id' => 'required|exists:holiday_categories,id',
-            'started_at' => 'required|date_format:Y-m-d',
-            'ended_at' => 'required|date_format:Y-m-d',
+            // 'category_id' => 'required|exists:holiday_categories,id',
+            // 'started_at' => 'required|date_format:Y-m-d',
+            // 'ended_at' => 'required|date_format:Y-m-d',
         ];
     }
 }

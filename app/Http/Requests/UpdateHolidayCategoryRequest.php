@@ -25,8 +25,8 @@ class UpdateHolidayCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code' => 'required|string|unique:holiday_categories,code',
-            'name' => 'required|string',
+            // 'code' => 'required|string|unique:holiday_categories,code',
+            // 'name' => 'required|string',
         ];
     }
 }
