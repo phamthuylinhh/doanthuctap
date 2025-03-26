@@ -10,6 +10,8 @@ use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\WorkDayController;
 use App\Http\Controllers\SalariesController;
+use App\Http\Controllers\DebtController;
+use App\Http\Controllers\DebtpayController;
 Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('/');
@@ -34,7 +36,8 @@ Route::middleware(['auth'])->prefix("/admin")->group(function () {
     Route::resource('holiday-categories', HolidayCategoryController::class)->only(['index', 'create', 'edit']);
     Route::resource('customers', CustomerController::class)->only(['index', 'create', 'edit']);
     Route::resource('salaries', SalariesController::class)->only(['index', 'create', 'edit']);
-    Route::resource('work_days', WorkDayController::class)->only(['index', 'create', 'edit']);
+    Route::resource('debts', DebtController::class)->only(['index', 'create', 'edit']);
+    Route::resource('debt-pays', DebtpayController::class)->only(['index', 'create', 'edit']);
 });
 
 

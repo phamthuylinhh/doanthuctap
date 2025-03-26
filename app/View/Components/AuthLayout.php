@@ -93,19 +93,6 @@ class AuthLayout extends Component
                 ]
             ],
             [
-                'name' => "Khách hàng",
-                'children' => [
-                    [
-                        'name' => "Thêm mới",
-                        'link' => "/admin/customers/create"
-                    ],
-                    [
-                        'name' => "Khách hàng",
-                        'link' => "/admin/customers"
-                    ]
-                ]
-            ],
-            [
                 'name' => "Ngày công",
                 'children' => [
                     [
@@ -119,16 +106,43 @@ class AuthLayout extends Component
                 ]
             ],
             [
+                'name' => "Khách hàng",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/customers/create"
+                    ],
+                    [
+                        'name' => "Khách hàng",
+                        'link' => "/admin/customers"
+                    ]
+                ]
+            ],
+            [
+                'name' => "Nợ",
+                'children' => [
+                    [
+                        'name' => "Thêm mới",
+                        'link' => "/admin/debts/create"
+                    ],
+                    [
+                        'name' => "Nợ",
+                        'link' => "/admin/debts"
+                    ]
+                ]
+            ],
+
+            [
                 'name' => "Thanh toán ",
                 'children' => [
                     [
                         'name' => "Thêm mới",
-                        'link' => "/admin/work_days/create",
+                        'link' => "/admin/debt-pays/create",
 
                     ],
                     [
-                        'name' => "Ngày công",
-                        'link' => "/admin/work_days"
+                        'name' => "Thanh toán",
+                        'link' => "/admin/debt-pays"
                     ]
                 ]
             ],

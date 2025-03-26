@@ -8,6 +8,8 @@ use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\WorkDayController;
 use App\Http\Controllers\SalariesController;
+use App\Http\Controllers\DebtController;
+use App\Http\Controllers\DebtpayController;
 Route::middleware('auth')->prefix('api/admin')->group(function () {
     Route::resource('users', UserController::class)->only(['store', 'update', 'destroy']);
     Route::resource('leave_requests', LeaveRequestController::class)->only(['store', 'update', 'destroy']);
@@ -17,4 +19,6 @@ Route::middleware('auth')->prefix('api/admin')->group(function () {
     Route::resource('customers', CustomerController::class)->only(['store', 'update', 'destroy']);
     Route::resource('salaries', SalariesController::class)->only(['store', 'update', 'destroy']);
     Route::resource('work_days', WorkDayController::class)->only(['store', 'update', 'destroy']);
+    Route::resource('debts', DebtController::class)->only(['store', 'update', 'destroy']);
+    Route::resource('debt-pays', DebtpayController::class)->only(['store', 'update', 'destroy']);
 });
